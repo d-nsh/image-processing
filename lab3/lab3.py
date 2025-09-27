@@ -31,15 +31,6 @@ img_gaussian = cv2.filter2D(img_gray, -1, kernel_gaussian)
 '''Медианный фильтр'''
 img_median = cv2.medianBlur(img_gray.astype(np.uint8), 3).astype(np.float32)
 
-'''Фильтр минимума/максимума (нелинейные)'''
-def min_filter(image, size=3):
-    return cv2.erode(image, np.ones((size,size)))
-
-def max_filter(image, size=3):
-    return cv2.dilate(image, np.ones((size,size)))
-
-img_min = min_filter(img_gray.astype(np.uint8)).astype(np.float32)
-img_max = max_filter(img_gray.astype(np.uint8)).astype(np.float32)
 
 '''ПОВЫШЕНИЕ РЕЗКОСТИ'''
 
@@ -116,5 +107,6 @@ for i, (image, title, cmap) in enumerate(methods):
 plt.tight_layout()
 plt.suptitle('СРАВНЕНИЕ МЕТОДОВ ОБРАБОТКИ ИЗОБРАЖЕНИЙ', fontsize=16, fontweight='bold')
 plt.show()
+
 
 
