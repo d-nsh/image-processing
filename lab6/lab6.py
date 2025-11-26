@@ -9,7 +9,7 @@ image_rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)
 pixels = image_rgb.reshape(-1, 3)
 
 # Mean Shift кластеризация
-bandwidth = estimate_bandwidth(pixels, quantile=0.15, n_samples=1000)
+bandwidth = estimate_bandwidth(pixels, quantile=0.1, n_samples=1000)
 print(f"Bandwidth: {bandwidth}")
 
 meanshift = MeanShift(bandwidth=bandwidth, bin_seeding=True)
